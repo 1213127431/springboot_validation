@@ -2,9 +2,12 @@ package com.ti.model.entity;
 
 import lombok.Data;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * 用户实体类
@@ -26,4 +29,9 @@ public class User {
 
     @NotBlank(message = "地址不能为空")
     private String address;
+
+    @Valid
+    @NotNull(message = "list不能为空")
+    @Size(min = 1, message = "list不能为空")
+    private List<String> list;
 }
